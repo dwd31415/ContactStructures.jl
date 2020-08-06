@@ -2,3 +2,6 @@ name = "ContactStructures"
 uuid = "f788b03a-f494-4120-b1ef-74cf0444a525"
 authors = ["Adrian Dawid <adriandwd@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
