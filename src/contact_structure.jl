@@ -1,0 +1,4 @@
+struct ContactStructure
+	distribtuion
+end
+
