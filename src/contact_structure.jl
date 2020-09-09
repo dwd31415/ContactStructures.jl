@@ -1,6 +1,23 @@
+include("lin_alg_helper.jl")
+
 struct ContactStructure
 	distribution # store the hyperplane dist. as R^3 -> R^6 function
 end
 
 # the standard contact structure (x_1 dx_2 + dx_3)
 standard_structure = ContactStructure((x,y,z) -> [1 0 -y;0 1 0])
+
+# @TODO: Turn into something nicer
+function structuralize_form(α::OneForm)
+	ContactStructure((x,y,z) -> extract_from_oneform(α,x,y,z))
+end
+
+function extract_from_oneform(α::OneForm,x,y,z)
+	mat = α.rep(x,y,z)
+	basis = kernel_basis(mat)
+	if length(basis) != 2
+		throw(ArgumentError("'Contact form' has kernel of dimension $(length(basis)) which is wrong. Must be 2."))
+	else
+		return [transpose(basis[1]);transpose(basis[2])]
+	end
+end
