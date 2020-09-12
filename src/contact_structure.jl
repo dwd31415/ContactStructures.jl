@@ -21,8 +21,6 @@ function extract_from_oneform(α::OneForm,x,y,z, tol = 1e-4)
 		if length(basis) == 3
 			for i ∈ [1,2,3]
 				for j ∈ setdiff([1,2,3],i)
-					println(abs.(basis[i]-basis[j]))
-					println(abs.(basis[i]+basis[j]))
 					if sum(abs.(basis[i]-basis[j])) < tol || sum(abs.(basis[i]+basis[j])) < tol 
 						throw_error = false
 						break
