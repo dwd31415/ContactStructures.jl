@@ -1,4 +1,5 @@
 include("lin_alg_helper.jl")
+include("contact_form.jl")
 
 struct ContactStructure
 	distribution # store the hyperplane dist. as R^3 -> R^6 function
