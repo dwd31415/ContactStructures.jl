@@ -12,11 +12,29 @@ function structuralize_form(α::OneForm)
 	ContactStructure((x,y,z) -> extract_from_oneform(α,x,y,z))
 end
 
-function extract_from_oneform(α::OneForm,x,y,z)
-	mat = α.rep(x,y,z)
+function extract_from_oneform(α::OneForm,x,y,z, tol = 1e-4)
+	mat = [α.rep(x,y,z); 0 0 0; 0 0 0]
 	basis = kernel_basis(mat)
 	if length(basis) != 2
-		throw(ArgumentError("'Contact form' has kernel of dimension $(length(basis)) which is wrong. Must be 2."))
+		throw_error = true
+		# check if the vectors are not actually the same solution twice 
+		if length(basis) == 3
+			for i ∈ [1,2,3]
+				for j ∈ setdiff([1,2,3],i)
+					println(abs.(basis[i]-basis[j]))
+					println(abs.(basis[i]+basis[j]))
+					if sum(abs.(basis[i]-basis[j])) < tol || sum(abs.(basis[i]+basis[j])) < tol 
+						throw_error = false
+						break
+					end
+				end
+			end
+		end
+		if throw_error
+			throw(ArgumentError("'Contact form' has kernel of dimension $(length(basis)) which is wrong. Must be 2."))
+		else 
+			return [transpose(basis[1]);transpose(basis[2])]
+		end
 	else
 		return [transpose(basis[1]);transpose(basis[2])]
 	end

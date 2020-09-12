@@ -6,9 +6,9 @@ struct OneForm
 	rep 
 end
 
-dx = OneForm((x,y,z) -> [1 0 0; 0 0 0; 0 0 0])
-dy = OneForm((x,y,z) -> [0 0 0; 0 1 0; 0 0 0])
-dz = OneForm((x,y,z) -> [0 0 0; 0 0 0; 0 0 1])
+dx = OneForm((x,y,z) -> [1 0 0])
+dy = OneForm((x,y,z) -> [0 1 0])
+dz = OneForm((x,y,z) -> [0 0 1])
 
 function (+)(a::OneForm, b::OneForm)
 	return OneForm((x, y, z) -> a.rep(x,y,z) + b.rep(x,y,z))
