@@ -1,5 +1,6 @@
 using Base.Iterators
 include("contact_form.jl")
+include("plot_plane.jl")
 
 function plot_along_param_curve!(curve, contact_str, step; midpoint_marker_color = :red, ε = 1.0, frame=false)
 	ts = collect(0:step:1)
