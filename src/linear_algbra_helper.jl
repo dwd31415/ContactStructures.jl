@@ -6,7 +6,7 @@ function kernel_basis(A, tol = 1e-5)
 	for idx in 1:length(λ_array)
 		λ = λ_array[idx]
 		if abs(λ) < tol
-			push!(B, vecs[:,idx])
+			push!(B, real.(vecs[:,idx]))
 		end
 	end
 	return B

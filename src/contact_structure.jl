@@ -11,7 +11,7 @@ function structuralize_form(α::OneForm)
 end
 
 function extract_from_oneform(α::OneForm,x,y,z, tol = 1e-4)
-	mat = transpose([α.rep(x,y,z); α.rep(x,y,z); α.rep(x,y,z)])
+	mat = [α.rep(x,y,z); α.rep(x,y,z); α.rep(x,y,z)]
 	basis = kernel_basis(mat)
 	if length(basis) != 2
 		throw_error = true
