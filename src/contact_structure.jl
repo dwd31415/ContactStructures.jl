@@ -1,4 +1,4 @@
-include("lin_alg_helper.jl")
+include("linear_algbra_helper.jl")
 include("contact_form.jl")
 
 struct ContactStructure
