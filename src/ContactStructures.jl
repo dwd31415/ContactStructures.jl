@@ -8,7 +8,7 @@ include("plotter.jl")
 
 export
 	# to work with contact forms
-	dx,dy,dy,
+	dx,dy,dz,
 	# raw contact structures might also be useful
 	ContactStructure,
 	# and of course the standard one

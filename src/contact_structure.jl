@@ -3,7 +3,7 @@ struct ContactStructure
 end
 
 # the standard contact structure (x_1 dx_2 + dx_3)
-standard_structure = ContactStructure((x,y,z) -> [1 0 -y;0 1 0])
+standard_structure = ContactStructure((x,y,z) -> [1 0 -y;0 1 0]) # @TODO: Is this correct?
 
 # @TODO: Turn into something nicer
 function structuralize_form(α::OneForm)
@@ -11,7 +11,7 @@ function structuralize_form(α::OneForm)
 end
 
 function extract_from_oneform(α::OneForm,x,y,z, tol = 1e-4)
-	mat = [α.rep(x,y,z); 0 0 0; 0 0 0]
+	mat = transpose([α.rep(x,y,z); α.rep(x,y,z); α.rep(x,y,z)])
 	basis = kernel_basis(mat)
 	if length(basis) != 2
 		throw_error = true
