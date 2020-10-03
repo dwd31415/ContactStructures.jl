@@ -1,6 +1,3 @@
-include("linear_algbra_helper.jl")
-include("contact_form.jl")
-
 struct ContactStructure
 	distribution # store the hyperplane dist. as R^3 -> R^6 function
 end

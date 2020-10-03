@@ -1,6 +1,4 @@
 using Base.Iterators
-include("contact_form.jl")
-include("plot_plane.jl")
 
 function plot_along_param_curve!(curve, contact_str, step; midpoint_marker_color = :red, ε = 1.0, frame=false)
 	ts = collect(0:step:1)
@@ -48,10 +46,10 @@ function plot_along_xy_grid(xs, ys, z, contact_str; midpoint_marker_color = :red
 	plot_along_xy_grid!(xs, ys, z, contact_str; midpoint_marker_color, ε)
 end
 
-function plot_along_xy_grid!(xs, ys, z, contact_form; midpoint_marker_color = :red, ε = 1.0)
+function plot_along_xy_grid!(xs, ys, z, contact_form::OneForm; midpoint_marker_color = :red, ε = 1.0)
 	plot_along_xy_grid!(xs, ys, z,structuralize_form(contact_form); midpoint_marker_color, ε)
 end
 
-function plot_along_xy_grid(xs, ys, z, contact_form; midpoint_marker_color = :red, ε = 1.0)
+function plot_along_xy_grid(xs, ys, z, contact_form::OneForm; midpoint_marker_color = :red, ε = 1.0)
 	plot_along_xy_grid(xs, ys, z,structuralize_form(contact_form); midpoint_marker_color, ε)
 end
