@@ -11,6 +11,9 @@ export
 	dx,dy,dy,
 	# raw contact structures might also be useful
 	ContactStructure,
+	# and of course the standard one
+	standard_structure,
+	# the plot function
 	plot_along_param_curve!,
 	plot_along_param_curve,
 	plot_along_xy_grid!,
