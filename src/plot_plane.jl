@@ -20,6 +20,6 @@ function plot_plane(center, spanning_vector_a, spanning_vector_b, color=:grey, Î
 	if frame
 		path3d!(x,y,z;color=frame_color)
 	end
-	mesh3d!(x,y,z;color)
+	mesh3d!(x,y,z;color,connections=([1,1],[0,3],[2,1]))
 end
 
