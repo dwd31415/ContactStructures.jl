@@ -2,12 +2,10 @@
 # kernel of matrix. This is done using the eigenvalues. 
 function kernel_basis(A, tol = 1e-5)
 	B = Array{Float64,1}[]
-	λ_array, vecs = eigen(A)
-	for idx in 1:length(λ_array)
-		λ = λ_array[idx]
-		if abs(λ) < tol
-			push!(B, real.(vecs[:,idx]))
-		end
+	kernel = nullspace(A);
+	kernel_size = size(kernel)[2]
+	for n = 1:kernel_size
+		push!(B,kernel[:,n]);
 	end
 	return B
 end
