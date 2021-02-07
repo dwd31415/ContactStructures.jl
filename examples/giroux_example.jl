@@ -6,5 +6,5 @@ g = (x,y,z) -> sin(2π*x)
 giroux_form = f * dz + g * dy 
 
 plotly()
-plot_along_xy_grid(-1:0.25:1,-1:0.25:1,0,giroux_form;  markersize = 2.5,ε = 0.1, frame=true)
-plot!(xlims=(-3, 3), ylims=(-3,3), zlims=(-3,3),legend=false)
+plot_along_xy_grid(0:0.125:1,0:0.125:1,0,giroux_form;  markersize = 0,ε = 0.05)
+plot!(xlims=(-0.1, 1.1), ylims=(-0.1,1.1), zlims=(-0.6,0.6),legend=false)
