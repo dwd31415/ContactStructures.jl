@@ -12,7 +12,6 @@ end
 
 function extract_from_oneform(α::OneForm,x,y,z, tol = 1e-4)
 	mat = [α.rep(x,y,z); α.rep(x,y,z); α.rep(x,y,z)]
-	println(mat)
 	basis = kernel_basis(mat)
 	if length(basis) != 2
 		throw_error = true
