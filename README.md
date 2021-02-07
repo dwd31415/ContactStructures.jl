@@ -1,5 +1,5 @@
 # ContactStructures.jl
-WIP package to visualize [contact structures](http://www.map.mpim-bonn.mpg.de/Contact_manifold) on ℝ^3.
+WIP package to visualize [contact structures](http://www.map.mpim-bonn.mpg.de/Contact_manifold) on ℝ^3 (or quotients of it).
 
 Two examples of the standard structure:
 
